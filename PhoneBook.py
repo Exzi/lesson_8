@@ -73,7 +73,10 @@ def main():
         print("2. Обновить контакт ")
         print("3. Удалить контакт ")
         print("4. Показать контакты ")
-        print("5. Выход ")
+        print("5. Сохранить контакт ")
+        print("6. Загрузить контакт ")
+        print("7. Скопировать контакт из одного файла в другой")
+        print("8. Выход ")
         
         choice = input("Выбери вариант: ")
 
@@ -102,6 +105,18 @@ def main():
         elif choice == '4':
             phone_book.display_contacts()
         elif choice == '5':
+            phone_book.save_to_file()
+            print("Контакт сохранен")
+        elif choice == '6':
+            phone_book.load_from_file()
+            print("Контакт загружен")
+        elif choice == '7':
+            source_file = 'contacts.txt'
+            target_file = 'copied_contacts.txt'
+            line_number = int(input("Номер строки для копирования: "))
+            phone_book.copy_line_to_another_file(source_file, target_file, line_number)
+            print(f"Строка {line_number} скопирована из {source_file} в {target_file}.")
+        elif choice == '8':
             break
         else:
             print("Неверно.Попробуйте снова ")

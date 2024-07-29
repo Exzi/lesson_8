@@ -42,12 +42,12 @@ def main():
     phone_book = PhoneBook()
 
     while True:
-        print("\nМеню телефонной книги:")
-        print("1. Добавить контакт")
-        print("2. Обновить контакт")
-        print("3. Удалить контакт")
-        print("4. Показать контакты")
-        print("5. Выход")
+        print("\nМеню телефонной книги: ")
+        print("1. Добавить контакт ")
+        print("2. Обновить контакт ")
+        print("3. Удалить контакт ")
+        print("4. Показать контакты ")
+        print("5. Выход ")
         
         choice = input("Выбери вариант: ")
 
@@ -57,28 +57,28 @@ def main():
             phone_number = input("Номер телефона:")
             phone_book.add_contact(first_name, last_name, phone_number)
         elif choice == '2':
-            name = input("Имя и фамилия контакта которого хотите обновить")
-            new_first_name = input("Введите новое имя")
-            new_last_name = input("Введите новую фамилию")
-            new_phone_number = input("Введите новый номер телефона")
+            name = input("Имя и фамилия контакта которого хотите обновить ")
+            new_first_name = input("Введите новое имя ")
+            new_last_name = input("Введите новую фамилию ")
+            new_phone_number = input("Введите новый номер телефона ")
             updated = phone_book.update_contact(name, new_first_name, new_last_name, new_phone_number)
             if updated:
-                print("Успешно обновлено")
+                print("Успешно обновлено ")
             else:
-                print("Контакт не найден")
+                print("Контакт не найден ")
         elif choice == '3':
-            name = input("Имя и фамилия контакта которого хотите удалить")
+            name = input("Имя и фамилия контакта которого хотите удалить ")
             deleted = phone_book.delete_contact(name)
             if deleted:
-                print("Успешно удалено")
+                print("Успешно удалено ")
             else:
-                print("Контакт не найден")
+                print("Контакт не найден ")
         elif choice == '4':
             phone_book.display_contacts()
         elif choice == '5':
             break
         else:
-            print("Неверно.Попробуйте снова")
+            print("Неверно.Попробуйте снова ")
 
 if __name__ == "__main__":
     main()

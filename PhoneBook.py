@@ -38,6 +38,32 @@ class PhoneBook:
         for contact in self.contacts:
             print(f"{contact['first_name']} {contact['last_name']}: {contact['phone_number']}")
 
+    def save_to_file(self, filename='contacts.txt'):
+        with open(filename, 'w') as f:
+            for contact in self.contacts:
+                f.write(f"{contact['first_name']},{contact['last_name']},{contact['phone_number']}\n")
+
+    def load_from_file(self, filename='contacts.txt'):
+        self.contacts.clear()
+        with open(filename, 'r') as f:
+            for line in f:
+                first_name, last_name, phone_number = line.strip().split(',')
+                self.contacts.append({
+                    'first_name': first_name,
+                    'last_name': last_name,
+                    'phone_number': phone_number
+                })
+
+    def copy_line_to_another_file(self, source_file, target_file, line_number):
+        with open(source_file, 'r') as src:
+            lines = src.readlines()
+        if line_number < 1 or line_number > len(lines):
+            print("Неверный номер строки")
+            return
+        line_to_copy = lines[line_number - 1]
+        with open(target_file, 'a') as tgt:
+            tgt.write(line_to_copy)
+
 def main():
     phone_book = PhoneBook()
 

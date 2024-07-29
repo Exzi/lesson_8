@@ -52,9 +52,9 @@ def main():
         choice = input("Выбери вариант: ")
 
         if choice == '1':
-            first_name = input("Имя")
-            last_name = input("Фамилия")
-            phone_number = input("Номер телефона:")
+            first_name = input("Имя ")
+            last_name = input("Фамилия ")
+            phone_number = input("Номер телефона: ")
             phone_book.add_contact(first_name, last_name, phone_number)
         elif choice == '2':
             name = input("Имя и фамилия контакта которого хотите обновить ")
